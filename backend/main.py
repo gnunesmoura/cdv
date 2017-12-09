@@ -40,4 +40,6 @@ if __name__ == '__main__':
                     'adj': []
                 })
 
-        analizer(data, 15)
+        data = analizer(data, 15)
+        data = accelerometer(data)
+        send(data)
