@@ -37,8 +37,10 @@ if __name__ == '__main__':
                         'y': aux[ind]['ac_Y'],
                         'z': aux[ind]['ac_Z']
                     },
-                    'status': 0,
-                    'adj': []
+                    'status': {
+                        'adj': [],
+                        'head': 0
+                    }
                 })
 
         data = analizer(data, 15)
