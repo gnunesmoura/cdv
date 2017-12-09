@@ -1,4 +1,5 @@
 import firebase_admin
+from cow import analizer
 from firebase_admin import credentials, db
 
 if __name__ == '__main__':
@@ -18,17 +19,25 @@ if __name__ == '__main__':
         ref_cows.append(db.reference('/Cows/' + vaquinha))
         id_vaquinhas.append(vaquinha)
 
-    # data = []
+    
+    while True:
+        data = []
 
-    # for i in range(len(ref_cows)):
-    #     aux = ref_cows[i].order_by_key().limit_to_last(1).get().items()
-    #     # data.append({
-    #     #     "id" : id_vaquinhas[i],
-    #     #     "l"
-    #     # })
-    # print (data)
-        
+        for i in range(len(ref_cows)):
+            aux = ref_cows[i].order_by_key().limit_to_last(1).get()
+            
+            for ind in aux:
+                data.append({
+                    'id': id_vaquinhas[i][4:],
+                    'cord': (aux[ind]['latitude'], aux[ind]['longitude']),
+                    'date': aux[ind]['date'],
+                    'ac': {
+                        'x': aux[ind]['ac_X'],
+                        'y': aux[ind]['ac_Y'],
+                        'z': aux[ind]['ac_Z']
+                    },
+                    'status': 0,
+                    'adj': []
+                })
 
-
-
-        
+        analizer(data, 15)
