@@ -13,13 +13,22 @@ if __name__ == '__main__':
     ref_cows = []
     ref = db.reference('/Cows')
     vaquinhas = ref.get()
-
+    id_vaquinhas = []
     for vaquinha in vaquinhas:
         ref_cows.append(db.reference('/Cows/' + vaquinha))
+        id_vaquinhas.append(vaquinha)
 
-    for cow in ref_cows:
-        for id_data, data in cow.order_by_key().limit_to_last(3).get().items():
-            print(data)
+    # data = []
 
-    while True:
+    # for i in range(len(ref_cows)):
+    #     aux = ref_cows[i].order_by_key().limit_to_last(1).get().items()
+    #     # data.append({
+    #     #     "id" : id_vaquinhas[i],
+    #     #     "l"
+    #     # })
+    # print (data)
+        
+
+
+
         
