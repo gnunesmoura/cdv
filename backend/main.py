@@ -1,5 +1,5 @@
 import firebase_admin
-from cow import analizer
+from distance_analyzer import analizer
 from firebase_admin import credentials, db
 
 if __name__ == '__main__':
@@ -36,10 +36,12 @@ if __name__ == '__main__':
                         'y': aux[ind]['ac_Y'],
                         'z': aux[ind]['ac_Z']
                     },
-                    'status': 0,
-                    'adj': []
+                    'status': {
+                        'adj': [],
+                        'head': 0
+                    }
                 })
 
-        data = analizer(data, 15)
-        data = accelerometer(data)
-        send(data)
+        print( analizer(data, 15))
+        # data = accelerometer(data)
+        # send(data)

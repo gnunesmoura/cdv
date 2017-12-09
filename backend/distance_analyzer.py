@@ -17,7 +17,6 @@ def analizer(data, dist):
         for j in range(n_vaquinhas):
             if i != j:
                 if matrix_adj[i][j] < dist:
-                    data[i]['status'] = 1
-                    data[i]['adj'].append(data[j]['id'])
+                    data[i]['status']['adj'].append(data[j]['id'])
 
     return data
