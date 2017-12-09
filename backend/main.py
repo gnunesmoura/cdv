@@ -1,5 +1,6 @@
 import firebase_admin
 from cow import analizer
+from acelerometro import accelerometer
 from firebase_admin import credentials, db
 
 if __name__ == '__main__':
@@ -42,4 +43,3 @@ if __name__ == '__main__':
 
         data = analizer(data, 15)
         data = accelerometer(data)
-        send(data)
