@@ -1,5 +1,5 @@
 import firebase_admin
-from cow import analizer
+from distance_analyzer import analizer
 from acelerometro import accelerometer
 from firebase_admin import credentials, db
 
