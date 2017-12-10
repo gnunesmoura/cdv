@@ -5,7 +5,7 @@ import firebase_admin
 from distance_analyzer import analizer
 from firebase_admin import credentials, db
 from acelerometro import accelerometer
-
+import requests
 
 def rotate(origin, point, angle):
     """
