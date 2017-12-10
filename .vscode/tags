@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+__init__	../backend/cow.py	/^    def __init__ (self, initial_data):$/;"	kind:member	line:3
+activate_this	../backend/ptvs_virtualenv_proxy.py	/^activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')$/;"	kind:variable	line:93
+cow	../backend/cow.py	/^class cow:$/;"	kind:class	line:2
+cow.py	../backend/cow.py	1;"	kind:file	line:1
+cred	../backend/main.py	/^    cred = credentials.Certificate($/;"	kind:variable	line:5
+credentials	../backend/main.py	/^from firebase_admin import credentials, db$/;"	kind:namespace	line:2
+datetime	../backend/ptvs_virtualenv_proxy.py	/^import datetime$/;"	kind:namespace	line:15
+db	../backend/main.py	/^from firebase_admin import credentials, db$/;"	kind:namespace	line:2
+execfile	../backend/ptvs_virtualenv_proxy.py	/^    def execfile(path, global_dict):$/;"	kind:function	line:24
+firebase_admin	../backend/main.py	/^import firebase_admin$/;"	kind:namespace	line:1
+get_venv_handler	../backend/ptvs_virtualenv_proxy.py	/^def get_venv_handler():$/;"	kind:function	line:106
+get_virtualenv_handler	../backend/ptvs_virtualenv_proxy.py	/^def get_virtualenv_handler():$/;"	kind:function	line:97
+get_wsgi_handler	../backend/ptvs_virtualenv_proxy.py	/^def get_wsgi_handler(handler_name):$/;"	kind:function	line:57
+log	../backend/ptvs_virtualenv_proxy.py	/^def log(txt):$/;"	kind:function	line:34
+main.py	../backend/main.py	1;"	kind:file	line:1
+os	../backend/ptvs_virtualenv_proxy.py	/^import os$/;"	kind:namespace	line:16
+ptvs_virtualenv_proxy.py	../backend/ptvs_virtualenv_proxy.py	1;"	kind:file	line:1
+ptvsd	../backend/ptvs_virtualenv_proxy.py	/^        import ptvsd$/;"	kind:namespace	line:48
+ptvsd_secret	../backend/ptvs_virtualenv_proxy.py	/^ptvsd_secret = os.getenv('WSGI_PTVSD_SECRET')$/;"	kind:variable	line:44
+ref	../backend/main.py	/^    ref = db.reference('\/Cows')$/;"	kind:variable	line:14
+ref_cows	../backend/main.py	/^    ref_cows = []$/;"	kind:variable	line:13
+site	../backend/ptvs_virtualenv_proxy.py	/^    import site$/;"	kind:namespace	line:108
+sys	../backend/ptvs_virtualenv_proxy.py	/^import sys$/;"	kind:namespace	line:17
+to_str	../backend/ptvs_virtualenv_proxy.py	/^    def to_str(value):$/;"	kind:function	line:21
+to_str	../backend/ptvs_virtualenv_proxy.py	/^    def to_str(value):$/;"	kind:function	line:31
+traceback	../backend/ptvs_virtualenv_proxy.py	/^import traceback$/;"	kind:namespace	line:18
+vaquinhas	../backend/main.py	/^    vaquinhas = ref.get()$/;"	kind:variable	line:15

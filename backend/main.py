@@ -2,10 +2,9 @@ import json
 import math
 
 import firebase_admin
-import requests
-from firebase_admin import credentials, db
-
 from distance_analyzer import analizer
+from firebase_admin import credentials, db
+from acelerometro import accelerometer
 
 
 def rotate(origin, point, angle):
@@ -77,13 +76,8 @@ if __name__ == '__main__':
                 data.append(vaquinha)
 
         data = analizer(data, 15)
-
-        for vaca in data:
-            print(vaca)
+        data = accelerometer(data)
 
         print(requests.post(
             "https://realtime-firebase-arlen.firebaseio.com/vacas.json",
             json=data))
-
-        # data = accelerometer(data)
-        # send(data)
