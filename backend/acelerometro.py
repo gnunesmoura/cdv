@@ -20,5 +20,4 @@ def accelerometer(data):
                     if(row["id"] == adj[0]):
                         if(row["status"]["head"] == 1):
                             subData["status"]["mounted"]="true"
-    print(data)
     return data
