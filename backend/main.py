@@ -6,6 +6,8 @@ from distance_analyzer import analizer
 from firebase_admin import credentials, db
 from acelerometro import accelerometer
 import requests
+import spark
+
 
 def rotate(origin, point, angle):
     """
@@ -48,35 +50,44 @@ if __name__ == '__main__':
             aux = ref_cows[i].order_by_key().limit_to_last(1).get()
 
             for indice in aux:
-                vaquinha = {
-                    'id': id_vaquinhas[i][4:],
-                    'cord': (aux[indice]['longitude'],
-                             aux[indice]['latitude']),
-                    'date': aux[indice]['date'],
-                    'ac': {
-                        'x': aux[indice]['ac_X'],
-                        'y': aux[indice]['ac_Y'],
-                        'z': aux[indice]['ac_Z']
-                    },
-                    'status': {
-                        'adj': [],
-                        'head': 0
+                try:
+                    vaquinha = {
+                        'id': id_vaquinhas[i][4:],
+                        'cord': (aux[indice]['longitude'],
+                                aux[indice]['latitude']),
+                        'date': aux[indice]['date'],
+                        'ac': {
+                            'x': aux[indice]['ac_X'],
+                            'y': aux[indice]['ac_Y'],
+                            'z': aux[indice]['ac_Z']
+                        },
+                        'status': {
+                            'adj': [],
+                            'head': 0
+                        }
                     }
-                }
 
-                vaquinha['cord'] = (
-                    abs(vaquinha['cord'][0] - refencia_tenda[0]),
-                    abs(vaquinha['cord'][1] - refencia_tenda[1]))
+                    vaquinha['cord'] = (
+                        abs(vaquinha['cord'][0] - refencia_tenda[0]),
+                        abs(vaquinha['cord'][1] - refencia_tenda[1]))
 
-                vaquinha['cordenada'] = {
-                    'longitude': vaquinha['cord'][0],
-                    'latitude': vaquinha['cord'][1]
-                }
+                    vaquinha['cordenada'] = {
+                        'longitude': vaquinha['cord'][0],
+                        'latitude': vaquinha['cord'][1]
+                    }
 
-                data.append(vaquinha)
+                    data.append(vaquinha)
+                except:
+                    continue
 
         data = analizer(data, 15)
         data = accelerometer(data)
+
+        for vaca in data:
+            if 'mounted' in vaca['status']:
+                spark.send_event(
+                    "Vaca {} deve estar no cio, aparentemente ela foi montada!".
+                    format(vaca['id']))
 
         print(requests.post(
             "https://realtime-firebase-arlen.firebaseio.com/vacas.json",
